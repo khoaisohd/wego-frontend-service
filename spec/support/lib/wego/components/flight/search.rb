@@ -1,5 +1,13 @@
 module WegoTestSupport
   module Flight
+
+    # Public: Stub the flight search result
+    #
+    # options
+    #     success               int, value 0 | 1
+    #     airlines              string[]
+    #     error_message         string
+    #
     module Search
       def self.stub_search_request_response
         response = {}

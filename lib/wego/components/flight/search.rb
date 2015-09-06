@@ -4,6 +4,17 @@ module Wego
     class Search
       include Singleton
 
+      # Public: Search the flight
+      #
+      # query
+      #     from              string
+      #     to                string
+      #
+      # return
+      #     success           int, value 0 | 1
+      #     airlines          string[]
+      #     error_message     string
+      #
       def search_flight
         query = {}
         yield query
@@ -53,6 +64,7 @@ module Wego
         end
       end
 
+      # This Function is only used for testing to stub the search request result
       def stub_flight_server_connection(connection)
         if Wego::System.run_in_test?
           @stub_flight_server_connection = connection
