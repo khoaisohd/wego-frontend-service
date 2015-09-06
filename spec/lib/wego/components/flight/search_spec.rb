@@ -8,7 +8,7 @@ describe Wego::Flight::Search do
   random = WegoTestSupport::Random
   flight_search = Wego::Flight::Search.instance
 
-  context 'Get Not Empty Flight Result' do
+  context "When the search finds results" do
 
     airlines = random.get_random_string_array
     flight_search_test_support.stub_search_request_response do |response|
@@ -31,7 +31,7 @@ describe Wego::Flight::Search do
 
   end
 
-  context 'Get Empty Flight Result' do
+  context "When the search doesn't find results" do
 
     error_message = random.get_random_string
 
