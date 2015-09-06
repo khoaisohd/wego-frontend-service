@@ -6,49 +6,52 @@ describe Wego::Flight::Search do
   random = WegoTestSupport::Random
   flight_search = Wego::Flight::Search.instance
 
-  context "When the search finds results" do
-
-    airlines = random.get_random_string_array
-    flight_search_test_support.stub_search_request_response do |response|
-      response[:success] = 1
-      response[:airlines] = airlines
+  before do
+    if success == 1
+      flight_search_test_support.stub_search_request_response do |response|
+        response[:success] = 1
+        response[:airlines] = airlines
+      end
+    else
+      flight_search_test_support.stub_search_request_response do |response|
+        response[:success] = 0
+        response[:error_message] = error_message
+      end
     end
 
-    result = flight_search.search_flight do |query|
+  end
+
+  subject(:results) do
+    flight_search.search_flight do |query|
       query[:from] = random.get_random_string
       query[:to] = random.get_random_string
     end
+  end
+
+  context "When the search finds results" do
+    let(:success) { 1 }
+    let(:airlines) { random.get_random_string_array }
 
     it 'request should be successful' do
-      expect(result[:success]).to eq(1)
+      expect(results[:success]).to eq(1)
     end
 
     it 'request should return correct airlines' do
-      expect(result[:airlines]).to match_array(airlines)
+      expect(results[:airlines]).to match_array(airlines)
     end
 
   end
 
   context "When the search doesn't find results" do
-
-    error_message = random.get_random_string
-
-    flight_search_test_support.stub_search_request_response do |response|
-      response[:success] = 0
-      response[:error_message] = error_message
-    end
-
-    result = flight_search.search_flight do |query|
-      query[:from] = random.get_random_string
-      query[:to] = random.get_random_string
-    end
+    let(:success) { 0 }
+    let(:error_message) { random.get_random_string }
 
     it 'request should be failed' do
-      expect(result[:success]).to eq(0)
+      expect(results[:success]).to eq(0)
     end
 
     it 'request should return correct error message' do
-      expect(result[:error_message]).to eq(error_message)
+      expect(results[:error_message]).to eq(error_message)
     end
   end
 end
