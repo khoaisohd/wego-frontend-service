@@ -3,6 +3,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
+require_relative '../lib/wego/wego'
+require_relative 'support/lib/wego/wego'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 

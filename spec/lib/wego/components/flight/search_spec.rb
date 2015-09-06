@@ -1,6 +1,4 @@
 require 'spec_helper'
-require_relative '../../../../../lib/wego/wego'
-require_relative '../../../../support/lib/wego/wego'
 
 describe Wego::Flight::Search do
 
