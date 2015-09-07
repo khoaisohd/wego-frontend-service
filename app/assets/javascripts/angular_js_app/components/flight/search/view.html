@@ -18,6 +18,7 @@
     </form>
 </section>
 <hr>
+
 <section class="row" ng-if="airlines">
     <h1 class="text-center h2">Results</h1>
     <ul class="list-unstyled">
@@ -26,9 +27,15 @@
         </li>
     </ul>
 </section>
+
+<section class="row" ng-if="show_loading">
+    <section class="well col-md-6 col-md-offset-3">
+        <div wego-widgets-loading-indicator message="Searching"></div>
+    </section>
+</section>
+
 <aside class="flash row">
     <article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3 col-sm-12">
         {{flash.message}}
     </article>
 </aside>
-<div wego-footer></div>

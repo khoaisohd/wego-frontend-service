@@ -4,11 +4,14 @@ controllers.controller("WegoFlightSearchController", [ '$scope', '$routeParams',
   ($scope,$routeParams, WegoFligthSearch, flash)->
 
     $scope.search = (from, to)->
+      $scope.show_loading = true
+      $scope.airlines = null
+      flash.error = null
       WegoFligthSearch(from, to)
         .then (airlines)->
           $scope.airlines = airlines
         , (error_message)->
-          $scope.airlines = null
           flash.error = error_message
-
+        .finally ->
+          $scope.show_loading = false
 ])
