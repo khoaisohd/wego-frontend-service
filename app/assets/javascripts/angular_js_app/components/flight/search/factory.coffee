@@ -1,6 +1,6 @@
 Wego = angular.module('wego')
 
-Wego.factory('WegoFligthSearch', ($http, $q)->
+Wego.factory('WegoFligthSearch', ['$http', '$q', ($http, $q)->
   (from, to)->
     deferred = $q.defer()
     $http.post('/flight/search', from: from, to: to)
@@ -13,4 +13,4 @@ Wego.factory('WegoFligthSearch', ($http, $q)->
     , (response)->
       deferred.reject()
     deferred.promise
-)
+])
