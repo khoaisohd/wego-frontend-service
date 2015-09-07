@@ -6,7 +6,7 @@ describe "WegoFlightSearchController", ->
   httpBackend  = null
   flash        = null
 
-  setupController =(results)->
+  setupController =(query, results)->
     inject(($rootScope, $resource, $httpBackend, $controller, _flash_)->
       scope       = $rootScope.$new()
       resource    = $resource
@@ -16,6 +16,7 @@ describe "WegoFlightSearchController", ->
       httpBackend.expectPOST('/flights/search').respond(results)
 
       ctrl = $controller('WegoFlightSearchController', $scope: scope)
+      scope.search(query)
     )
 
   afterEach ->
@@ -29,8 +30,12 @@ describe "WegoFlightSearchController", ->
       results =
         success: 1
         airlines: ['Singapore', 'Malaysia']
+      query =
+        from: 'Singapore',
+        end: 'Hanoi'
+
       beforeEach ->
-        setupController(results)
+        setupController(query, results)
         httpBackend.flush()
 
       it 'calls the back-end', ->
@@ -40,8 +45,11 @@ describe "WegoFlightSearchController", ->
       results =
         success: 0
         error_message: "No airline operating between desired locations"
+      query =
+        from: 'Singapore',
+        end: 'Hanoi'
       beforeEach ->
-        setupController(results)
+        setupController(query, results)
         httpBackend.flush()
 
       it 'calls the back-end', ->
