@@ -13,6 +13,11 @@ module Wego
       }
     }
 
+    # Public: Get system setting value
+    #
+    # params setting                string
+    # return                        any
+    #
     def self.value(setting)
       setting_valid = self.is_setting_valid setting
       if setting_valid

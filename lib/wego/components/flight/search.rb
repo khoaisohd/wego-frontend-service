@@ -6,7 +6,7 @@ module Wego
 
       # Public: Search the flight
       #
-      # query
+      # params query
       #     from              string
       #     to                string
       #

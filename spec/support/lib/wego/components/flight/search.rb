@@ -3,7 +3,7 @@ module WegoTestSupport
 
     # Public: Stub the flight search result
     #
-    # options
+    # params response
     #     success               int, value 0 | 1
     #     airlines              string[]
     #     error_message         string
