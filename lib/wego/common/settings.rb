@@ -7,6 +7,9 @@ module Wego
               :url => 'https://glacial-shelf-4962.herokuapp.com',
               :search_path => '/flights/search'
           }
+      },
+      :front_end => {
+          :ui_framework => 'angular_js'
       }
     }
 
