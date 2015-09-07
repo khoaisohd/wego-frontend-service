@@ -6,8 +6,6 @@ class FlightController < ApplicationController
       query[:to] = params['to']
     end
 
-    Rails.logger.debug("My result: #{result}")
-
     if result[:success] == 1
       render :json => {
                  :success => 1,
