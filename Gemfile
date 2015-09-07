@@ -36,6 +36,9 @@ gem 'bower-rails'
 gem 'js_assets'
 gem 'faraday'
 
+gem 'angular-rails-templates'
+gem 'angular_rails_csrf'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
