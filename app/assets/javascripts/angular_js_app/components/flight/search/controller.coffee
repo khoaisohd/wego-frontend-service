@@ -1,3 +1,5 @@
+#= require ./factory
+
 controllers = angular.module('controllers')
 
 controllers.controller("WegoFlightSearchController", [ '$scope', '$routeParams', 'WegoFligthSearch', 'flash',
