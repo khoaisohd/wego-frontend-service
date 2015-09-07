@@ -30,11 +30,29 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'sprockets', '2.12.3'
+gem 'sass'
+gem 'bower-rails'
+gem 'js_assets'
+gem 'faraday'
+
+gem 'angular-rails-templates'
+gem 'angular_rails_csrf'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
   gem 'web-console'
   gem 'spring'
+  gem "rspec-rails", "~> 3.3.3"
+  gem "factory_girl_rails", "~> 4.0"
+  gem "capybara"
+  gem "database_cleaner"
+  gem "selenium-webdriver"
+  gem 'teaspoon-jasmine'
+  gem 'phantomjs'
+  gem 'guard'
+  gem 'guard-shell'
 end
 
 group :production do

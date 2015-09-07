@@ -1,28 +1,19 @@
-== README
+== Wego
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
+This is an simple Flight Search Project which is built from Ruby on Rails and AngularJs
 
 * Configuration
+    I intent to specify the location of the Search Flight Server in database.
 
-* Database creation
+    But because I haven't used any database in this project, so I set the Search Flight
+    Server url as the default setting
 
-* Database initialization
+*  Run the test suite
+    Run ruby test suite
+        bundle exec rspec spec
+    Run javascript test suite for Angular js
+        rake teaspoon
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Deployment on Heroku
+    heroku create
+    git push heroku master
