@@ -3,8 +3,10 @@
 This is an simple Flight Search Project which is builed from Ruby on Rails and AngularJs
 
 * Configuration
-    I intent to specify location of Search Flight Server in database
-    But because I haven't integrate database for this project, so I set the Search Flight Server url as the default setting
+    I intent to specify location of Search Flight Server in database.
+    
+    But because I haven't integrate database for this project, so I set the Search Flight
+    Server url as the default setting
 
 *  Run the test suite
     Run ruby test suite
