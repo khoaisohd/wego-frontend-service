@@ -1,15 +1,13 @@
-#= require ./factory
+Wego = angular.module('wego')
 
-controllers = angular.module('controllers')
-
-controllers.controller("WegoFlightSearchController", [ '$scope', '$routeParams', 'WegoFligthSearch', 'flash',
-  ($scope,$routeParams, WegoFligthSearch, flash)->
+Wego.controller("WegoFlightSearchController", [ '$scope', '$routeParams', 'WegoFlightSearch', 'flash',
+  ($scope,$routeParams, WegoFlightSearch, flash)->
 
     $scope.search = (from, to)->
       $scope.show_loading = true
       $scope.airlines = null
       flash.error = null
-      WegoFligthSearch(from, to)
+      WegoFlightSearch(from, to)
         .then (airlines)->
           $scope.airlines = airlines
         , (error_message)->
