@@ -1,1 +1,34 @@
-<h1>Search</h1>
+<div wego-header></div>
+<section class="row">
+    <h1 class="text-center col-md-6 col-md-offset-3">Search Flight</h1>
+</section>
+<section class="row">
+    <form>
+        <div class="form-group col-md-6 col-md-offset-3">
+            <input ng-model="from" name="from" type="text" autofocus class="form-control" placeholder="From" required>
+        </div>
+
+        <div class="form-group col-md-6 col-md-offset-3">
+            <input ng-model="to" name="to" type="text" autofocus class="form-control" placeholder="To" required>
+        </div>
+
+        <div class="form-group col-md-6 col-md-offset-3 text-center">
+            <button ng-click="search(from, to)" class="btn btn-primary btn-lg">Search</button>
+        </div>
+    </form>
+</section>
+<hr>
+<section class="row" ng-if="airlines">
+    <h1 class="text-center h2">Results</h1>
+    <ul class="list-unstyled">
+        <li ng-repeat="airline in airlines">
+            <div wego-airline-list-view-item airline="airline"></div>
+        </li>
+    </ul>
+</section>
+<aside class="flash row">
+    <article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3 col-sm-12">
+        {{flash.message}}
+    </article>
+</aside>
+<div wego-footer></div>
