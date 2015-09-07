@@ -53,7 +53,7 @@ module Wego
       end
 
       def flight_server_connection
-        if @use_stub
+        if Wego::System.run_in_test? && @use_stub
           @stub_flight_server_connection
         else
           Faraday.new(:url => Flight::Info.flight_server_url) do |faraday|
